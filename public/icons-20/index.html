@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Icons 20 Preview</title>
+    <style>
+      :root {
+        --icon-color: #7D8394;
+        --bg: #f7f8fa;
+        --card: #ffffff;
+        --text: #172b4d;
+        --muted: #6b778c;
+        --border: #dfe1e6;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 24px;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 24px;
+      }
+      .sub {
+        margin: 0 0 20px;
+        color: var(--muted);
+      }
+      .group {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+      .group h2 {
+        margin: 0 0 12px;
+        font-size: 16px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 10px;
+      }
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: #fff;
+        padding: 10px 8px;
+      }
+      .icon-wrap {
+        width: 20px;
+        height: 20px;
+        color: var(--icon-color);
+        line-height: 0;
+      }
+      .icon-wrap img {
+        width: 20px;
+        height: 20px;
+        display: block;
+      }
+      .name {
+        font-size: 11px;
+        color: var(--muted);
+        text-align: center;
+        word-break: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Icons 20 Preview</h1>
+    <p class="sub">Style from Figma. Size: 20px. Default color: #7D8394.</p>
+    <div id="app"></div>
+
+    <script>
+      const GROUPS = ["Global", "Media", "Emoji", "Editor", "Bitbucket", "test-icon"];
+
+      async function loadManifest() {
+        const response = await fetch("./manifest.json");
+        if (!response.ok) throw new Error("manifest not found");
+        return response.json();
+      }
+
+      function renderGroup(group, files) {
+        const section = document.createElement("section");
+        section.className = "group";
+
+        const title = document.createElement("h2");
+        title.textContent = `${group} (${files.length})`;
+        section.appendChild(title);
+
+        const grid = document.createElement("div");
+        grid.className = "grid";
+
+        files.forEach((file) => {
+          const item = document.createElement("div");
+          item.className = "item";
+
+          const iconWrap = document.createElement("div");
+          iconWrap.className = "icon-wrap";
+
+          const img = document.createElement("img");
+          img.src = `./${group}/${file}`;
+          img.alt = file;
+          iconWrap.appendChild(img);
+
+          const name = document.createElement("div");
+          name.className = "name";
+          name.textContent = file.replace(".svg", "");
+
+          item.appendChild(iconWrap);
+          item.appendChild(name);
+          grid.appendChild(item);
+        });
+
+        section.appendChild(grid);
+        return section;
+      }
+
+      async function main() {
+        const root = document.getElementById("app");
+        let manifest = null;
+        try {
+          manifest = await loadManifest();
+        } catch (error) {
+          const fallback = document.createElement("section");
+          fallback.className = "group";
+          fallback.innerHTML = `<h2>Preview Error</h2><p class="sub">Could not load manifest.json. Run icon import script again.</p>`;
+          root.appendChild(fallback);
+          return;
+        }
+
+        for (const group of GROUPS) {
+          try {
+            const files = (manifest.files && manifest.files[group]) || [];
+            root.appendChild(renderGroup(group, files));
+          } catch (error) {
+            const fallback = document.createElement("section");
+            fallback.className = "group";
+            fallback.innerHTML = `<h2>${group}</h2><p class="sub">Could not render this group.</p>`;
+            root.appendChild(fallback);
+          }
+        }
+      }
+
+      main();
+    </script>
+  </body>
+</html>
