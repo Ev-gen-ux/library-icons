@@ -1,7 +1,7 @@
 export const SIZES = [24, 20, 16] as const;
 export type IconSize = (typeof SIZES)[number];
 
-const STROKES: Record<IconSize, number> = { 24: 1.8, 20: 1.7, 16: 1.5 };
+const STROKES: Record<IconSize, number> = { 24: 2, 20: 1.5, 16: 1 };
 const COLOR = "currentColor";
 
 function scaler(size: IconSize) {
