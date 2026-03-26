@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Icons 20 Preview</title>
+    <title>lib</title>
     <style>
       :root {
         --icon-color: #7D8394;
@@ -75,12 +75,12 @@
     </style>
   </head>
   <body>
-    <h1>Icons 20 Preview</h1>
-    <p class="sub">Style from Figma. Size: 20px. Default color: #7D8394.</p>
+    <h1>lib</h1>
+    <p class="sub">Icon library (20px, currentColor #7D8394).</p>
     <div id="app"></div>
 
     <script>
-      const GROUPS = ["Global", "Media", "Emoji", "Editor", "Bitbucket", "test-icon"];
+      const GROUPS = ["test-icon"];
 
       async function loadManifest() {
         const response = await fetch("./manifest.json");

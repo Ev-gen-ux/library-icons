@@ -1,0 +1,19 @@
+{
+  "color": "#7D8394",
+  "size": 20,
+  "groups": {
+    "test-icon": 7
+  },
+  "files": {
+    "test-icon": [
+      "address-book.svg",
+      "network-node.svg",
+      "wifi.svg",
+      "user.svg",
+      "users.svg",
+      "tel-book.svg",
+      "phone.svg"
+    ]
+  },
+  "missing": []
+}
