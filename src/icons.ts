@@ -26,9 +26,8 @@ export function iconSet(size: IconSize): Record<string, string> {
       `<circle cx="${s(10.5)}" cy="${s(10.5)}" r="${s(5.5)}" stroke="${COLOR}" stroke-width="${sw}"/>` +
       `<path d="M${s(15)} ${s(15)}L${s(20)} ${s(20)}" stroke="${COLOR}" stroke-width="${sw}" stroke-linecap="round"/>`,
     user:
-      `<circle cx="${s(12)}" cy="${s(8.5)}" r="${s(3.5)}" fill="none"/>` +
-      `<circle cx="${s(12)}" cy="${s(8.5)}" r="${s(3.5)}" stroke="${COLOR}" stroke-width="${sw}"/>` +
-      `<path d="M${s(5)} ${s(19)}C${s(5)} ${s(15.3)} ${s(8)} ${s(13.4)} ${s(12)} ${s(13.4)}C${s(16)} ${s(13.4)} ${s(19)} ${s(15.3)} ${s(19)} ${s(19)}V${s(20)}H${s(5)}Z" fill="${COLOR}"/>`,
+      `<circle cx="${s(12)}" cy="${s(8)}" r="${s(3.2)}" fill="${COLOR}"/>` +
+      `<path d="M${s(5)} ${s(19)}C${s(5)} ${s(15.8)} ${s(8)} ${s(14)} ${s(12)} ${s(14)}C${s(16)} ${s(14)} ${s(19)} ${s(15.8)} ${s(19)} ${s(19)}C${s(19)} ${s(19.55)} ${s(18.55)} ${s(20)} ${s(18)} ${s(20)}H${s(6)}C${s(5.45)} ${s(20)} ${s(5)} ${s(19.55)} ${s(5)} ${s(19)}Z" fill="${COLOR}"/>`,
     settings:
       `<circle cx="${s(12)}" cy="${s(12)}" r="${s(3)}" fill="${COLOR}" fill-opacity="${softFill}"/>` +
       `<circle cx="${s(12)}" cy="${s(12)}" r="${s(3)}" stroke="${COLOR}" stroke-width="${sw}"/>` +
