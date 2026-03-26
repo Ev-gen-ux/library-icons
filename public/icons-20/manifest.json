@@ -7,7 +7,7 @@
     "Emoji": 14,
     "Editor": 74,
     "Bitbucket": 14,
-    "test-icon": 3
+    "test-icon": 5
   },
   "files": {
     "Global": [
@@ -370,9 +370,11 @@
       "technology.svg"
     ],
     "test-icon": [
+      "address-book.svg",
       "network-node.svg",
       "user.svg",
-      "team.svg"
+      "team.svg",
+      "users.svg"
     ]
   },
   "missing": []
