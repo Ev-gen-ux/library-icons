@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg" color="#7D8394">
+<g id="icon">
+<path d="M10 16C10 17.1046 9.10457 18 8 18C6.89543 18 6 17.1046 6 16H10Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9 1.99219C11.8377 2.46827 14 4.93619 14 7.90918V12H16V14H0V12H2V7.90918C2 4.93619 4.16229 2.46827 7 1.99219V0H9V1.99219ZM8 3.90918C5.79086 3.90918 4 5.70004 4 7.90918V12H12V7.90918C12 5.70004 10.2091 3.90918 8 3.90918Z" fill="currentColor"/>
+</g>
+</svg>
